@@ -44,7 +44,7 @@ jobs:
           # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Nimisha-Chonattil_spring3-mvc-maven-xml-hello-world -Dsonar.qualitygate.wait=true
-      - name: achiving the artifacts
+      - name: Uploading the artifact
         uses: actions/upload-artifact@v3
         with: 
           name: ${{ github.event.inputs.ARTIFACT_NAME }}
