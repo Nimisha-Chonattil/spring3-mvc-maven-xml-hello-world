@@ -22,11 +22,12 @@ jobs:
            - run: |
                ls -a
                cd artifacts/
+               ls
                cd */
+               ls
                pwd  
            - name: deploy to Tomcat
-             run: curl -u ${{secrets.TOMCAT_USR}}:${{secrets.TOMCAT_PWD}} "http://13.211.116.171:8080/manager/text/deploy?path=/spring-hello-war" -T spring-hello-war.war
-         
+             run: curl -v -u ${{secrets.TOMCAT_USR}}:${{secrets.TOMCAT_PWD}} -T /home/runner/work/spring3-mvc-maven-xml-hello-world/spring3-mvc-maven-xml-hello-world/artifacts/*/*.war http://13.211.116.171:8080/manager/text/deploy?path=/spring-hello-war
 # Building war: /home/runner/work/spring3-mvc-maven-xml-hello-world/spring3-mvc-maven-xml-hello-world/target/spring3-mvc-maven-xml-hello-world-1.0-SNAPSHOT.war
 # Build war: /home/runner/work/spring3-mvc-maven-xml-hello-world/spring3-mvc-maven-xml-hello-world/target/spring3-mvc-maven-xml-hello-world-1.0-SNAPSHOT.war http://34.125.215.223:8080/manager/text/deploy?path=/spring-hello-war
 # curl -v -u ${{secrets.TOMCAT_USR}}:${{secrets.TOMCAT_PWD}} -T /home/runner/work/spring3-mvc-maven-xml-hello-world/spring3-mvc-maven-xml-hello-world/artifacts/*/*.war http://34.125.215.223:8080/manager/text/deploy?path=/spring-hello-war
