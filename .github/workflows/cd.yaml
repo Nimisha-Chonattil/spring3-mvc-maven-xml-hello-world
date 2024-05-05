@@ -6,7 +6,6 @@ on:
 jobs: 
     deploy:
         # needs: build
-        environment: test
         runs-on: ubuntu-latest
         steps:
            - name: Download build artifact from triggered workflow
