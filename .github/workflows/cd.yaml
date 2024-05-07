@@ -5,7 +5,7 @@ on:
         types: completed
 jobs: 
     deploy:
-        # needs: build
+        
         runs-on: ubuntu-latest
         steps:
            - name: Download build artifact from triggered workflow
