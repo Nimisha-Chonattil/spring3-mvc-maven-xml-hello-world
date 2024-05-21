@@ -27,6 +27,3 @@ jobs:
                pwd  
            - name: deploy to Tomcat
              run: curl -v -u ${{secrets.TOMCAT_USR}}:${{secrets.TOMCAT_PWD}} -T /home/runner/work/spring3-mvc-maven-xml-hello-world/spring3-mvc-maven-xml-hello-world/artifacts/*/*.war http://54.206.111.223:8080/manager/text/deploy?path=/spring-hello-war
-# Building war: /home/runner/work/spring3-mvc-maven-xml-hello-world/spring3-mvc-maven-xml-hello-world/target/spring3-mvc-maven-xml-hello-world-1.0-SNAPSHOT.war
-# Build war: /home/runner/work/spring3-mvc-maven-xml-hello-world/spring3-mvc-maven-xml-hello-world/target/spring3-mvc-maven-xml-hello-world-1.0-SNAPSHOT.war http://34.125.215.223:8080/manager/text/deploy?path=/spring-hello-war
-# curl -v -u ${{secrets.TOMCAT_USR}}:${{secrets.TOMCAT_PWD}} -T /home/runner/work/spring3-mvc-maven-xml-hello-world/spring3-mvc-maven-xml-hello-world/artifacts/*/*.war http://34.125.215.223:8080/manager/text/deploy?path=/spring-hello-war
