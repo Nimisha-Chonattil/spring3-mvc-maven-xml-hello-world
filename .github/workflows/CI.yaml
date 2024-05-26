@@ -44,9 +44,22 @@ jobs:
           # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Nimisha-Chonattil_spring3-mvc-maven-xml-hello-world -Dsonar.qualitygate.wait=true
+
+      - name: Summary
+        if: steps.sonar.outcome == 'failure'
+        run: echo "- SONAR :***FAIL***" >> $GITHUB_STEP_SUMMARY
+
+      - name: Summary
+        if: steps.sonar.outcome == 'success'
+        run: echo "- SONAR :***PASS***" >> $GITHUB_STEP_SUMMARY
+
       - name: Uploading the artifact
         uses: actions/upload-artifact@v3
         with: 
           name: ${{ github.event.inputs.ARTIFACT_NAME }}
           path: target/*.war
-          
+      - run: |
+          ls
+          cd target/
+          ls
+          pwd    
