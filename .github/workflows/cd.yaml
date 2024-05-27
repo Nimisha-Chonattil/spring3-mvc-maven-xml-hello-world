@@ -16,8 +16,6 @@ jobs:
                 path: ./artifacts
                 search_artifacts: true
              
-           - run: echo "${{ github.event.workflow_run.event }}"
-           - run: echo "${{github.event.workflow_run.event.inputs.environment}}"
            - run: |
                ls -a
                cd artifacts/
